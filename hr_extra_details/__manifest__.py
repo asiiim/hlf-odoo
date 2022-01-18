@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Bank Branch Details",
+    'name': "HR Extra Details",
 
     'summary': """
-        Managing  multiple bank branches Detail Info.""",
+        HR and Contract Related Detail Info.""",
 
     'author': "Manoj Khadka, 10 Orbits",
     'website': "https://www.10orbits.com/",
@@ -13,6 +13,6 @@
     'depends': ['bank_branch','hr_contract'],
 
     'data': [
-        'views/bank_branch_details.xml'
+        'views/hr_extra_details.xml'
     ],
 }

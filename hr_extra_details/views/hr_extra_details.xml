@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-   <record id="res_partner_inherit_bank_branch_details" model="ir.ui.view">
-            <field name="name">res.partner.inherit.bank.branch.details</field>
+   <record id="res_partner_inherit_hr_extra_details" model="ir.ui.view">
+            <field name="name">res.partner.inherit.hr.extra.details</field>
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref= "hr.view_employee_form"/>
             <field name="arch" type="xml">
@@ -30,8 +30,8 @@
                 </xpath>
             </field>
         </record>
-         <record id="hr_contract_inherit_bank_branch_details" model="ir.ui.view">
-            <field name="name">hr.contract.inherit.bank.branch.details</field>
+         <record id="hr_contract_inherit_hr_extra_details" model="ir.ui.view">
+            <field name="name">hr.contract.inherit.hr.extra.details</field>
             <field name="model">hr.contract</field>
             <field name="inherit_id" ref= "hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
