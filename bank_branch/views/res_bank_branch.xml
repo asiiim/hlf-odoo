@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Bank Branch Tree View -->
+        <record id="view_res_bank_branch_tree" model="ir.ui.view">
+            <field name="name">Bank Branch Tree View</field>
+            <field name="model">res.bank.branch</field>
+            <field name="arch" type="xml">
+                <tree string="Bank Branch">
+                    <field name="name"/>
+                    <field name="branch_code"/>
+                    <field name="bank_id"/>
+                    <field name="street"/>
+                    <field name="street2"/>
+                    <field name="city"/>
+                    <field name="state_id"/>
+                    <field name="country"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Bank Branch Form View -->
+        <record id="view_res_bank_branch_form" model="ir.ui.view">
+            <field name="name">Bank Branch Form View</field>
+            <field name="model">res.bank.branch</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <form string="Bank Branch">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <label for="street" string="Address"/>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="city" placeholder="City" class="o_address_city"/>
+                                    <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
+                                    <field name="zip_code" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="country" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' readonly="1"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="branch_code"/>
+                                <field name="bank_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Bank Branch Action -->
+        <record id="action_res_bank_branch" model="ir.actions.act_window">
+            <field name="name">Bank Branches</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.bank.branch</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new branch for the bank
+              </p>
+            </field>
+        </record>
+
+        <!-- Menuitems -->
+        <menuitem id="menu_config_bank_branches"
+            name="Bank Branches"
+            parent="contacts.menu_config_bank_accounts"
+            action="bank_branch.action_res_bank_branch"
+            sequence="7"/>
+    </data>
+</odoo>

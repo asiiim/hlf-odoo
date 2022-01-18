@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Bank form view -->
+        <record model="ir.ui.view" id="view_res_bank_inherit_bank_branch_form">
+            <field name="name">Bank Form View Inherit Branch</field>
+            <field name="model">res.bank</field>
+            <field name="inherit_id" ref="base.view_res_bank_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <notebook>
+                        <page string="Bank Branches" name="bank_branches">
+                            <field name="branch_ids">
+                                <tree string="Bank Branch" editable='Top'>
+                                    <field name="name"/>
+                                    <field name="branch_code"/>
+                                    <field name="street"/>
+                                    <field name="street2"/>
+                                    <field name="city"/>
+                                    <field name="zip_code"/>
+                                    <field name="state_id"/>
+                                    <field name="country" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

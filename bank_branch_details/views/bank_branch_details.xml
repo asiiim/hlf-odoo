@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="res_partner_inherit_bank_branch_details" model="ir.ui.view">
+            <field name="name">res.partner.inherit.bank.branch.details</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref= "hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="hr_private_info" string="HR Related Info">
+                            <group>
+                                <group>
+                                    <field name="corporate_title"/>
+                                    <field name="functional_title"/>
+                                </group>
+                                <group>
+                                  <field name="level"/>
+                                     <field name="pan_number"/>
+                                     <field name="blood_group"/>
+                                </group>
+                                <group>
+                                  <field name="ssf"/>
+                                  <field name="pf"/>
+                                  <field name="cit_number"/>
+                                  <field name="citizenship_no"/>
+                                  <field name="issue_place"/>
+                                  <field name="issue_date"/>
+                                </group>
+                            </group>
+                        </page>
+                </xpath>
+            </field>
+        </record>
+         <record id="hr_contract_inherit_bank_branch_details" model="ir.ui.view">
+            <field name="name">hr.contract.inherit.bank.branch.details</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref= "hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='information']" position="after">
+                    <page name="extra_info" string="Extra Info">
+                            <group>
+                                <group>
+                                    <field name="probation_date"/>
+                                    <field name="probation_end_date"/>
+                                </group>
+                                <group>
+                                  <field name="first_supervisor"/>
+                                     <field name="second_supervisor"/>
+                                </group>
+                                <group>
+                                  <field name="first_emergency_contact"/>
+                                  <field name="second_emergency_contact"/>
+                                </group>
+                            </group>
+                        </page>
+                </xpath>
+            </field>
+        </record>
+</odoo>
