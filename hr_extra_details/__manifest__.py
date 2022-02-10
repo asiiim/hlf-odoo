@@ -13,6 +13,7 @@
     'depends': ['bank_branch','hr_contract'],
 
     'data': [
+        'security/ir.model.access.csv',
         'views/hr_extra_details.xml'
     ],
 }
