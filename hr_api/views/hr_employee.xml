@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="inherit_view_employee_form" model="ir.ui.view">
+        <field name="name">Employee Form Inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref= "hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            
+            <field name="department_id" position="before">
+                <field name='joining_date'/>
+            </field>
+            
+            <field name="user_id" position="after">
+                <field name='last_login_date'/>
+            </field>
+
+            <!-- District data -->
+            <field name="work_location" position="after">
+                <field name='district_id' options='{"no_create": True}'/>
+                <field name='district_name' readonly='1'/>
+            </field>
+        </field>
+    </record>
+</odoo>
