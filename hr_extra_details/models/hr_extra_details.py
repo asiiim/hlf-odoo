@@ -88,3 +88,25 @@ class ContractInherit(models.Model):
 
     first_emergency_contact = fields.Many2one('res.partner',string="First Emergency Contact")
     second_emergency_contact = fields.Many2one('res.partner',string="Second Emergency Contact")
+
+    probation_end_date = fields.Date(string="Probation End Date",compute='_get_probation_end_date',store=True)
+
+    @api.depends('probation_date','probation_duration')
+    def _get_probation_end_date(self):
+        for rec in self:
+            if rec.probation_date and rec.probation_duration:
+                if rec.probation_duration == 'one_month':
+                    rec.probation_end_date = rec.probation_date + relativedelta(months=1)
+                elif rec.probation_duration == 'two_month':
+                    rec.probation_end_date = rec.probation_date + relativedelta(months=2)
+                elif rec.probation_duration == 'three_month':
+                    rec.probation_end_date = rec.probation_date + relativedelta(months=3)
+                elif rec.probation_duration == 'four_month':
+                    rec.probation_end_date = rec.probation_date + relativedelta(months=4)
+                elif rec.probation_duration == 'five_month':
+                    rec.probation_end_date = rec.probation_date + relativedelta(months=5)
+                else:
+                    rec.probation_end_date = rec.probation_date + relativedelta(months=6)
+
+    first_emergency_contact = fields.Many2one('res.partner',string="First Emergency Contact")
+    second_emergency_contact = fields.Many2one('res.partner',string="Second Emergency Contact")
