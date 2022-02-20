@@ -1,50 +1,73 @@
-# sphinx build directories
-_build/
-
-# dotfiles
-.*
-!.gitignore
-!.github
-!.mailmap
-# compiled python files
-*.py[co]
+# Byte-compiled / optimized / DLL files
 __pycache__/
-# setup.py egg_info
-*.egg-info
-# emacs backup files
+*.py[cod]
+.vscode/
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+*.eggs
+AUTHORS
+ChangeLog
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Pycharm
+.idea
+
+# Django stuff:
+*.log
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Sphinx documentation
+docs/_build/
+
+# Backup files
 *~
-# hg stuff
-*.orig
-status
-# odoo filestore
-odoo/filestore
-# maintenance migration scripts
-odoo/addons/base/maintenance
+*.swp
 
-# generated for windows installer?
-install/win32/*.bat
-install/win32/meta.py
+# Mac files
+.DS_Store
 
-# needed only when building for win32
-setup/win32/static/less/
-setup/win32/static/wkhtmltopdf/
-setup/win32/static/postgresql*.exe
-
-# js tooling
+# file generated when running tests
+.cprofile_*
 node_modules
 package-lock.json
-package.json
-.husky
 
-# various virtualenv
-/bin/
-/build/
-/dist/
-/include/
-/lib/
-/man/
-/share/
-/src/
 
-# avoid adding it after generation from tsconfig command
-tsconfig.json
