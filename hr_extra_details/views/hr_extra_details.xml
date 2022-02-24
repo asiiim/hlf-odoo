@@ -50,7 +50,9 @@
                                     <field name="probation_duration"/>
                                     <field name="probation_end_date"/>
                                 </group>
+
                                
+
                                 <group>
                                   <field name="first_emergency_contact"/>
                                   <field name="second_emergency_contact"/>
@@ -58,6 +60,10 @@
                             </group>
                         </page>
                 </xpath>
+
+                <field name="date_start" position="attributes" >
+                    <attribute name="string">Joining Date </attribute>
+                </field>
             </field>
         </record>
         <record id="action_menu_corporate_level_hr_tree" model="ir.ui.view">

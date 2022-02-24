@@ -35,6 +35,7 @@ class HrEmployeeInherit(models.Model):
         ('AB+', 'AB RhD positive'),
         ('AB-', 'AB RhD negative'),
     ], string="Blood Group")
+    
 
     first_supervisor = fields.Many2one('hr.employee',string="First Supervisor")
     second_supervisor = fields.Many2one('hr.employee',string="Second Supervisor")
@@ -60,7 +61,7 @@ class FunctionalTitle(models.Model):
 class ContractInherit(models.Model):
     _inherit = "hr.contract"
 
-    probation_date = fields.Date(string="Probation Date")
+    probation_date = fields.Date( string="Probation Date")
     probation_duration = fields.Selection([
         ('one_month', '1 Month'),
         ('two_month', '2 Month'),
