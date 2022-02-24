@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_corporate_level_hr,access.corporate.level.hr,model_corporate_level_hr,,1,1,1,1
 access_functional_title_hr,access.functional.title.hr,model_functional_title_hr,,1,1,1,1
+access_appointment_type_hr,access.appointment.type.hr,model_appointment_type_hr,,1,1,1,1
 

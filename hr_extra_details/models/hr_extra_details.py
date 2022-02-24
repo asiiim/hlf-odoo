@@ -15,6 +15,7 @@ class HrEmployeeInherit(models.Model):
     corporate_level = fields.Many2one('corporate.level.hr',string="Corporate Level")
     corporate_title = fields.Char(related='corporate_level.corporate_title',store=True)
     functional_title = fields.Many2one('functional.title.hr',string="Functional Title")
+    appointmet_type =fields.Many2one('appointment.type.hr',string ="Appointmet Type")
     level = fields.Char(string="Level")
     pan_number = fields.Char(string="PAN Number")
     ssf = fields.Char(string="SSF")
@@ -110,3 +111,12 @@ class ContractInherit(models.Model):
 
     first_emergency_contact = fields.Many2one('res.partner',string="First Emergency Contact")
     second_emergency_contact = fields.Many2one('res.partner',string="Second Emergency Contact")
+
+class hrAppointmentType(models.Model):
+    _name ="appointment.type.hr"
+
+    name = fields.Char(string = "Appointmet Type")
+
+
+
+    

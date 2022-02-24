@@ -9,11 +9,12 @@
                     <page name="hr_private_info" string="HR Related Info">
                             <group>
                                 <group>
+                                    <field name ="appointmet_type" />
                                     <field name="functional_title"/>
                                     <field name="corporate_title"/>
                                 </group>
                                 <group>
-                                  <field name="corporate_level"/>
+                                    <field name="corporate_level"/>
                                      <field name="pan_number"/>
                                      <field name="blood_group"/>
                                 </group>
@@ -84,6 +85,7 @@
 				</form>
 				</field>
         </record>
+
          <record id="action_menu_functional_title_tree" model="ir.ui.view">
             <field name="name">functional.title.hr.tree</field>
             <field name="model">functional.title.hr</field>
@@ -110,6 +112,31 @@
 				</field>
         </record>
 
+        <record id="action_menu_functional_title_tree" model="ir.ui.view">
+            <field name="name">appointment.type.hr.tree</field>
+            <field name="model">appointment.type.hr</field>
+            <field name="arch" type="xml">
+               <tree string="Appointment Type">                                                 
+                    <field name="name"/>
+                </tree>
+                </field>
+        </record>
+        <record id="action_menu_appointment_type_form" model="ir.ui.view" >
+            <field name="name">appointment.type.hr.form </field>
+            <field name ="model">appointment.type.hr</field>
+            <field name="arch" type="xml">
+               <form string="Appointment Type">
+                <sheet> 
+                    <group string="Appointment Type">       
+                        <group>                 
+                            <field name="name"/>                              
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="action_menu_corporate_level_hr">
             <field name="name">Corporate Level</field>
             <field name="type">ir.actions.act_window</field>
@@ -122,8 +149,16 @@
             <field name="res_model">functional.title.hr</field>
             <field name="view_mode">tree,form</field>
         </record>
+         <record model="ir.actions.act_window" id="action_menu_appoointment_type">
+            <field name="name">Appointment Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appointment.type.hr</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <menuitem id="menu_corporate_level_hr" parent="hr.menu_human_resources_configuration" name="Corporate Level" sequence="204" action="action_menu_corporate_level_hr"/>
         <menuitem id="menu_functional_title_hr" parent="hr.menu_human_resources_configuration" name="Functional Title" sequence="205" action="action_menu_functional_title"/>
+        <menuitem id ="menu_appoointment_type_hrs" parent ="hr.menu_human_resources_configuration" name="Appointment Type" sequence="206" action="action_menu_appoointment_type"/>
 
 
 </odoo>
