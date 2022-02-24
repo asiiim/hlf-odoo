@@ -9,7 +9,7 @@
                     <page name="hr_private_info" string="HR Related Info">
                             <group>
                                 <group>
-                                    <field name ="appointmet_type" />
+                                    <field name ="appointmet_type" options="{'no_create': True}"/>
                                     <field name="functional_title"/>
                                     <field name="corporate_title"/>
                                 </group>
