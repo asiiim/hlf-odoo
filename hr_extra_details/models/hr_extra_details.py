@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import string
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
@@ -35,8 +36,9 @@ class HrEmployeeInherit(models.Model):
         ('AB-', 'AB RhD negative'),
     ], string="Blood Group")
 
-    first_supervisor = fields.Many2one('res.users',string="First Supervisor")
-    second_supervisor = fields.Many2one('res.users',string="Second Supervisor")
+    first_supervisor = fields.Many2one('hr.employee',string="First Supervisor")
+    second_supervisor = fields.Many2one('hr.employee',string="Second Supervisor")
+    transfer_department = fields.Many2one('hr.department',string="Transfer Department")
   
 class CorporateTitle(models.Model):
     _name = "corporate.level.hr"

@@ -27,8 +27,10 @@
                                   <field name="issue_date"/>
                                 </group>
                                  <group>
-                                  <field name="first_supervisor"/>
-                                     <field name="second_supervisor"/>
+                                    <field name="first_supervisor"/>
+                                    <field name="second_supervisor"/>
+                                    <field name = "department_id" string="Last Department"/>
+                                    <field name ="transfer_department"/>
                                 </group>
                             </group>
                         </page>
