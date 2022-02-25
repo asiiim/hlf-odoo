@@ -64,6 +64,10 @@
                 <field name="date_start" position="attributes" >
                     <attribute name="string">Joining Date </attribute>
                 </field>
+
+                <field name="date_end" position="attributes" >
+                    <attribute name="string">Permanent End Date </attribute>
+                </field>                
             </field>
         </record>
         <record id="action_menu_corporate_level_hr_tree" model="ir.ui.view">
