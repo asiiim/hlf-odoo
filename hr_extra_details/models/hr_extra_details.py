@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import string
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
@@ -27,7 +28,7 @@ class HrFunctionalTitle(models.Model):
 class HrContract(models.Model):
     _inherit = "hr.contract"
 
-    probation_date = fields.Date(string="Probation Date")
+    probation_date = fields.Date( string="Probation Date")
     probation_duration = fields.Selection([
         ('one_month', '1 Month'),
         ('two_month', '2 Month'),
