@@ -25,6 +25,8 @@ class HrEmployeeInherit(models.Model):
     citizenship_no = fields.Char(string="Citizenship No.")
     issue_place = fields.Char(string="Issue Place")
     issue_date = fields.Date(string="Issue Date")
+    promotion_date = fields.Date(string ="Promotion Date")
+    transfer_date = fields.Date(string ="Transfer Date")
     blood_group = fields.Selection([
         ('A+', 'A RhD positive'),
         ('A-)', 'A RhD negative'),
