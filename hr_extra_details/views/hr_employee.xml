@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="inherit_view_employee_form" model="ir.ui.view">
+        <field name="name">Employee Form Inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref= "hr.view_employee_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook" position="inside">
+                <page name="hr_private_info" string="HR Related Info">
+                    <group>
+                        <group>
+                            <field name ="appointment_type" options="{'no_create': True}"/>
+                            <field name="functional_title"/>
+                            <field name="corporate_title"/>
+                        </group>
+                        <group>
+                            <field name="corporate_level"/>
+                                <field name="pan_number"/>
+                                <field name="blood_group"/>
+                        </group>
+                        <group>
+                            <field name="ssf"/>
+                            <field name="pf"/>
+                            <field name="cit_number"/>
+                            <field name="citizenship_no"/>
+                            <field name="issue_place"/>
+                            <field name="issue_date"/>
+                        </group>
+                            <group>
+                            <field name="first_supervisor"/>
+                                <field name="second_supervisor"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            
+            <field name="department_id" position="before">
+                <field name='joining_date'/>
+            </field>
+            
+            <field name="user_id" position="after">
+                <field name='last_login_date'/>
+            </field>
+
+            <!-- District data -->
+            <field name="work_location" position="after">
+                <field name='district_id' options='{"no_create": True}'/>
+                <field name='district_name' readonly='1'/>
+            </field>
+        </field>
+    </record>
+</odoo>

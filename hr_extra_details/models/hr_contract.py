@@ -10,20 +10,6 @@ from datetime import date,datetime
 from dateutil.relativedelta import relativedelta
 
 
-class HrCorporateTitle(models.Model):
-    _name = "corporate.level.hr"
-    _rec_name = 'level'
-
-    level = fields.Integer(string="Corporate Level")
-    corporate_title = fields.Char(string="Corporate Title")    
-
-
-class HrFunctionalTitle(models.Model):
-    _name = "functional.title.hr"
-    
-    name = fields.Char(string="Functional Title")
-
-
 class HrContract(models.Model):
     _inherit = "hr.contract"
 
@@ -80,13 +66,3 @@ class HrContract(models.Model):
 
     first_emergency_contact = fields.Many2one('res.partner',string="First Emergency Contact")
     second_emergency_contact = fields.Many2one('res.partner',string="Second Emergency Contact")
-
-
-class HrAppointmentType(models.Model):
-    _name ="appointment.type.hr"
-
-    name = fields.Char(string = "Appointment Type")
-
-
-
-    
