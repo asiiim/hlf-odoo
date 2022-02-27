@@ -18,6 +18,7 @@
         'security/ir.model.access.csv',
         'views/hr_extra_details.xml',
         'views/hr_employee.xml',
-        'views/hr_contract.xml'
+        'views/hr_contract.xml',
+        'views/hr_contracts.xml'
     ],
 }

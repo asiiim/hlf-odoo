@@ -13,6 +13,7 @@ from dateutil.relativedelta import relativedelta
 class HrContract(models.Model):
     _inherit = "hr.contract"
 
+    appointment_type =fields.Many2one('appointment.type.hr',string ="Appointment Type")
     probation_date = fields.Date(string="Probation Date")
     probation_duration = fields.Selection([
         ('one_month', '1 Month'),

@@ -9,6 +9,7 @@
                 <page name="extra_info" string="Extra Info">
                     <group>
                         <group>
+                            <field name ="appointment_type" options="{'no_create': True}"/>
                             <field name="probation_date"/>
                             <field name="probation_duration"/>
                             <field name="probation_end_date"/>
@@ -18,8 +19,14 @@
                             <field name="second_emergency_contact"/>
                         </group>
                     </group>
-                </page>
+                </page>                
             </xpath>
+            <field name="date_start" position="attributes">
+                <attribute name="string">Joining Date </attribute>
+            </field>
+            <field name="date_end" position="attributes">
+                <attribute name="string">Permanent End Date </attribute>
+            </field>
         </field>
     </record>
 </odoo>

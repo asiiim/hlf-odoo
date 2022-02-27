@@ -11,7 +11,7 @@
                 <page name="hr_private_info" string="HR Related Info">
                     <group>
                         <group>
-                            <field name ="appointment_type" options="{'no_create': True}"/>
+                            <field name ="promotion_date"/>                        
                             <field name="functional_title"/>
                             <field name="corporate_title"/>
                         </group>
@@ -33,7 +33,6 @@
                             <field name="second_supervisor"/>
                             <field name = "department_id" string="Transferred Department"/>
                             <field name ="last_department"/>
-                            <field name ="promotion_date"/>
                             <field name = "transfer_date"/>
                         </group>
                     </group>

@@ -29,7 +29,6 @@ class HrEmployeePrivate(models.Model):
     corporate_level = fields.Many2one('corporate.level.hr',string="Corporate Level")
     corporate_title = fields.Char(related='corporate_level.corporate_title',store=True)
     functional_title = fields.Many2one('functional.title.hr',string="Functional Title")
-    appointment_type =fields.Many2one('appointment.type.hr',string ="Appointment Type")
     level = fields.Char(string="Level")
     pan_number = fields.Char(string="PAN Number")
     ssf = fields.Char(string="SSF")
@@ -41,17 +40,17 @@ class HrEmployeePrivate(models.Model):
     promotion_date = fields.Date(string ="Promotion Date")
     transfer_date = fields.Date(string ="Transfer Date")
     blood_group = fields.Selection([
-        ('A+', 'A RhD positive'),
-        ('A-)', 'A RhD negative'),
-        ('B+', 'B RhD positive'),
-        ('B-', 'B RhD negative'),
-        ('O+', 'O RhD positive'),
-        ('O-', 'O RhD negative'),
-        ('AB+', 'AB RhD positive'),
-        ('AB-', 'AB RhD negative'),
+        ('A+','A+'),
+        ('A-','A-'),
+        ('B+','B+'),
+        ('B-','B-'),
+        ('O+','O+'),
+        ('O-','O-'),
+        ('AB+','AB+'),
+        ('AB-','AB-'),
     ], string="Blood Group")
     
 
     first_supervisor = fields.Many2one('hr.employee',string="First Supervisor")
     second_supervisor = fields.Many2one('hr.employee',string="Second Supervisor")
-    last_department = fields.Many2one('hr.department',string="Last Department")
+    last_department = fields.Char(string="Last Department")
