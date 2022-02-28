@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_partner_view_form_branch">
+            <field name="name">Bank Branch in contact bank Account</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='bank_ids']/tree//field[@name='acc_number']" position="after">
+                    <field name="bank_id" invisible="1" />
+                    <field  name="bank_branch"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

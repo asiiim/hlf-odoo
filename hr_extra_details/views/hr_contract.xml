@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_contract_inherit_hr_extra_details" model="ir.ui.view">
+        <field name="name">hr.contract.inherit.hr.extra.details</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref= "hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='information']" position="after">
+                <page name="extra_info" string="Extra Info">
+                    <group>
+                        <group>
+                            <field name ="appointment_type" options="{'no_create': True}"/>
+                            <field name="probation_date"/>
+                            <field name="probation_duration"/>
+                            <field name="probation_end_date"/>
+                        </group>
+                        <group>
+                            <field name="first_emergency_contact"/>
+                            <field name="second_emergency_contact"/>
+                        </group>
+                    </group>
+                </page>                
+            </xpath>
+            <field name="date_start" position="attributes">
+                <attribute name="string">Joining Date </attribute>
+            </field>
+            <field name="date_end" position="attributes">
+                <attribute name="string">Permanent End Date </attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
