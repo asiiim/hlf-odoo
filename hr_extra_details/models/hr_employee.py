@@ -30,7 +30,7 @@ class HrEmployeePrivate(models.Model):
     corporate_title = fields.Char(related='corporate_level.corporate_title',store=True)
     functional_title = fields.Many2one('functional.title.hr',string="Functional Title")
     level = fields.Char(string="Level")
-    pan_number = fields.Char(string="PAN Number")
+    pan_number = fields.Char(related='user_id.partner_id.vat', string="PAN Number")
     ssf = fields.Char(string="SSF")
     pf = fields.Char(string="PF")
     cit_number = fields.Char(string="CIT Number")

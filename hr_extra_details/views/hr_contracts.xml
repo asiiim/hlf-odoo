@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <record id="hr_contract_inherit_hr_extra_details" model="ir.ui.view">
-    </record>
-</odoo>
