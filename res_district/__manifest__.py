@@ -14,7 +14,7 @@
     'company': 'Ten Orbits Pvt. Ltd.',
     'maintainer': 'Aashim Bajracharya',
     'website': 'https://10orbits.com',
-    'depends': ['base'],
+    'depends': ['contacts'],
     'data': [
         'security/ir.model.access.csv',
         'views/res_district.xml',
