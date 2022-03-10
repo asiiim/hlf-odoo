@@ -27,6 +27,12 @@
             <field name="date_end" position="attributes">
                 <attribute name="string">Permanent End Date </attribute>
             </field>
+            <field name="first_contract_date" position="replace">
+                <field name='first_contract_date'/>
+            </field>
+            <field name="first_contract_date" position="attributes">
+                <attribute name="string">Permanent Start Date </attribute>
+            </field>   
         </field>
     </record>
 </odoo>
