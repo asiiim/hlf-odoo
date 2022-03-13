@@ -56,5 +56,23 @@ class HrEmployeePrivate(models.Model):
     last_department = fields.Many2one('hr.department', string="Last Department")
     transfer_location = fields.Many2one('hr.department', string="Transfer Location")
 
-    
+
+    @api.model
+    def check_emp_transfers(self):
+        # This method is run by cron action to check the transfers to be done on current day.
         
+        # Get today and transfer date object
+        today_date = date.today()
+        employee_records = self.env['hr.employee'].search([])
+        
+        for rec in employee_records:
+            if rec.transfer_date:
+                
+                if rec.transfer_date == today_date:
+                    
+                    # Transfer Action
+                    rec.update({
+                        'last_department': rec.department_id.id,
+                        'department_id': rec.transfer_location.id,
+                    })
+
