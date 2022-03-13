@@ -31,7 +31,7 @@
                             <group>
                             <field name="first_supervisor"/>
                             <field name="second_supervisor"/>
-                            <field name ="last_department"/>
+                            <field name ="last_department" readonly="1"/>
                             <field name ="transfer_location"/>
                             <field name = "transfer_date"/>
                         </group>
@@ -42,9 +42,7 @@
             <field name="department_id" position="before">
                 <field name='joining_date'/>
             </field>
-            <field name="first_contract_date" position="replace">
-                <field name='first_contract_date'/>
-            </field>            
+           
             
             <field name="user_id" position="after">
                 <field name='last_login_date'/>

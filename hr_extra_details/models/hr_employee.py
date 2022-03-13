@@ -53,5 +53,8 @@ class HrEmployeePrivate(models.Model):
 
     first_supervisor = fields.Many2one('hr.employee',string="First Supervisor")
     second_supervisor = fields.Many2one('hr.employee',string="Second Supervisor")
-    last_department = fields.Char(string="Last Department")
-    transfer_location = fields.Char(string="Transfer Location")
+    last_department = fields.Many2one('hr.department', string="Last Department")
+    transfer_location = fields.Many2one('hr.department', string="Transfer Location")
+
+    
+        
