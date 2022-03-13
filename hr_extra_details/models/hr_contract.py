@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import string
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
@@ -14,6 +15,7 @@ class HrContract(models.Model):
     _inherit = "hr.contract"
 
     appointment_type =fields.Many2one('appointment.type.hr',string ="Appointment Type")
+    permanent_start_date = fields.Date(string ="Permanent Start Date")
     probation_date = fields.Date(string="Probation Date")
     probation_duration = fields.Selection([
         ('one_month', '1 Month'),
