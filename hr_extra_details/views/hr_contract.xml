@@ -9,12 +9,14 @@
                 <page name="extra_info" string="Extra Info">
                     <group>
                         <group>
+                            <!-- <field name ="permanent_date"/> -->
                             <field name ="appointment_type" options="{'no_create': True}"/>
                             <field name="probation_date"/>
                             <field name="probation_duration"/>
                             <field name="probation_end_date"/>
                         </group>
                         <group>
+                            <field name="permanent_start_date"/>
                             <field name="first_emergency_contact"/>
                             <field name="second_emergency_contact"/>
                         </group>
@@ -27,12 +29,12 @@
             <field name="date_end" position="attributes">
                 <attribute name="string">Permanent End Date </attribute>
             </field>
-            <field name="first_contract_date" position="replace">
+            <!-- <field name="first_contract_date" position="replace">
                 <field name='first_contract_date'/>
-            </field>
-            <field name="first_contract_date" position="attributes">
+            </field> -->
+            <!-- <field name="first_contract_date" position="attributes">
                 <attribute name="string">Permanent Start Date </attribute>
-            </field>   
+            </field>    -->
         </field>
     </record>
 </odoo>

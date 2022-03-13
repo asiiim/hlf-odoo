@@ -5,7 +5,7 @@
     'summary': """
         HR and Contract Related Detail Info.""",
 
-    'author': "Manoj Khadka, 10 Orbits",
+    'author': "Dharmajit BUdha, 10 Orbits",
     'maintainer': "Aashim Bajracharya",
     'website': "https://www.10orbits.com/",
     'category': 'HR',
@@ -18,6 +18,7 @@
         'security/ir.model.access.csv',
         'views/hr_extra_details.xml',
         'views/hr_employee.xml',
-        'views/hr_contract.xml'
+        'views/hr_contract.xml',
+        'data/hr_employee.xml'
     ],
 }
