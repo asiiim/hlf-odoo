@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Salary Rule Category -->
+        <record id="INSURANCE" model="hr.salary.rule.category">
+            <field name="name">Insurance</field>
+            <field name="code">INSURANCE</field>
+        </record>
+
+        
+        <!-- Salary Rules -->
+        <record id="hr_rule_allowance" model="hr.salary.rule">
+            <field name="name">Allowance</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">ALW</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance</field>
+        </record>
+
+        <record id="hr_rule_allowance" model="hr.salary.rule">
+            <field name="name">Allowance</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">ALW</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance</field>
+        </record>
+
+        <record id="hr_rule_insurance" model="hr.salary.rule">
+            <field name="name">Insurance</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">INSRNC</field>
+            <field name="category_id" ref="hr_salary_features.INSURANCE"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.insurance</field>
+        </record>
+
+        <record id="hr_rule_cit" model="hr.salary.rule">
+            <field name="name">CIT</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">CIT</field>
+            <field name="category_id" ref="hr_payroll_community.COMP"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.cit</field>
+        </record>
+
+        <record id="hr_rule_perfalw" model="hr.salary.rule">
+            <field name="name">Performance Allowance</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">PERFALW</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">fix</field>
+        </record>
+
+        <record id="hr_rule_daialw" model="hr.salary.rule">
+            <field name="name">Daily Allowance</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">DAIALW</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">fix</field>
+        </record>
+
+        
+        <!-- Salary Rule Inputs -->
+        <record id="hr_rule_input_perfalw" model="hr.rule.input">
+            <field name="name">Performance Allowance</field>
+            <field name="code">PERFALW</field>
+            <field name="input_id" ref="hr_salary_features.hr_rule_perfalw"/>
+        </record>
+        <record id="hr_rule_input_daialw" model="hr.rule.input">
+            <field name="name">Daily Allowance</field>
+            <field name="code">DAIALW</field>
+            <field name="input_id" ref="hr_salary_features.hr_rule_daialw"/>
+        </record>
+    </data>
+</odoo>
