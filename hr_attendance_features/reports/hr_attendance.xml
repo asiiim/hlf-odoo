@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_hr_attendance_monthly_report" model="ir.actions.report">
+            <field name="name">Monthly Attendance Report</field>
+            <field name="model">attendance.monthly.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_attendance_features.report_hr_monthly_attendance_document</field>
+            <field name="report_file">hr_attendance_features.report_hr_monthly_attendance_document</field>
+            <field name="binding_model_id" ref="model_attendance_monthly_report"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+        <template id="report_hr_monthly_attendance_document">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">                    
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        
+                        <div class="page mt16">
+                          <div class="oe_structure"/>
+      
+                          <div id="informations" class="row">
+                              <div class="col-12 bm-2 text-center" style="font-size: 20px;">
+                                  <h3>
+                                      Attendance Monthly Report
+                                  </h3><br/><br/>
+                              </div>
+                          </div>
+                          
+                          
+                          <div id="informations" class="row">
+                            <div class="col-4 bm-2">
+                                  <strong>From: </strong><span t-esc="form['start_date']"/>          
+                            </div>
+                            <div class="col-4 bm-2 text-center">
+                                <strong>Total Days: </strong><span t-esc="form['total_days']"/>          
+                            </div>
+                            <div class="col-4 bm-2 text-right">
+                                  <strong>To: </strong><span t-esc="form['end_date']"/>          
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
+                        
+                        <table class="table table-sm o_main_table">
+                          <thead>
+                              <tr>
+                                  <th name="th_emp_id" class="text-center align-middle"><strong>Emp ID</strong></th>
+                                  <th name="th_name" class="text-center align-middle"><strong>Name</strong></th>
+                                  <th name="th_supervisor" class="text-center align-middle"><strong>Supervisor</strong></th>
+                                  <th name="th_company" class="text-center align-middle"><strong>Company</strong></th>
+                                  <th name="th_hq" class="text-center align-middle"><strong>HQ</strong></th>
+                                  <th name="th_present" class="text-center align-middle"><strong>Present(Days)</strong></th>
+                                  <th name="th_weekly_off" class="text-center align-middle"><strong>Weekly Off</strong></th>
+                                  <th name="th_absent" class="text-center align-middle"><strong>Absent(Days)</strong></th>
+                                  <th name="th_holidays" class="text-center align-middle"><strong>Holidays</strong></th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <t t-foreach="report_data" t-as="rpdt">
+                                  <tr>
+                                      <td><span t-esc="rpdt['id']"/></td>
+                                      <td><span t-esc="rpdt['name']"/></td>
+                                      <td><span t-esc="rpdt['supervisor']"/></td>
+                                      <td><span t-esc="rpdt['company']"/></td>
+                                      <td><span t-esc="rpdt['hq']"/></td>
+                                      <td><span t-esc="rpdt['present']"/></td>
+                                      <td><span t-esc="form['weekly_off_days']"/></td>
+                                      <td><span t-esc="rpdt['absent']"/></td>
+                                      <td><span t-esc="form['holidays']"/></td>
+                                  </tr>
+                              </t>
+                          </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
