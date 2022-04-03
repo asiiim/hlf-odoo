@@ -20,16 +20,6 @@
             <field name="amount_python_compute">result = contract.allowance</field>
         </record>
 
-        <record id="hr_rule_allowance" model="hr.salary.rule">
-            <field name="name">Allowance</field>
-            <field name="sequence" eval="1"/>
-            <field name="code">ALW</field>
-            <field name="category_id" ref="hr_payroll_community.ALW"/>
-            <field name="condition_select">none</field>
-            <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = contract.allowance</field>
-        </record>
-
         <record id="hr_rule_insurance" model="hr.salary.rule">
             <field name="name">Insurance</field>
             <field name="sequence" eval="1"/>
@@ -56,7 +46,8 @@
             <field name="code">PERFALW</field>
             <field name="category_id" ref="hr_payroll_community.ALW"/>
             <field name="condition_select">none</field>
-            <field name="amount_select">fix</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.PERFALW.amount</field>
         </record>
 
         <record id="hr_rule_daialw" model="hr.salary.rule">
@@ -65,7 +56,8 @@
             <field name="code">DAIALW</field>
             <field name="category_id" ref="hr_payroll_community.ALW"/>
             <field name="condition_select">none</field>
-            <field name="amount_select">fix</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.DAIALW.amount</field>
         </record>
 
         
