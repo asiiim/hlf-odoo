@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="amount_in_words" name="Amount in Words">  
+        <!-- Here custom_abstract_model is passed from the template caller. -->        
+        <table class="table table-sm">
+            <tr class="border-black o_total">
+                <td name="td_taxes_label">
+                    <b>
+                        Amount In Words (<span t-esc="currency.name"/>): 
+                    </b>
+                </td>
+                <td>
+                    <i t-esc="custom_abstract_model.get_amount_to_words(amount)"/>
+                </td>
+            </tr>
+        </table>
+    </template>
+    
+    <template id="semi_footer_info" name="Semi Footer Information">
+        <br/><br/><br/><br/>
+        <div id="informations" class="row mt32 mb32">
+            <t t-foreach="actors" t-as="actor">
+                <div class="col-4 text-center">
+                  <div>_____________________________________</div>
+                  <t t-if="'object' in actor">
+                      <strong t-esc="actor['title']"/>
+                      <div t-esc="actor['object']" class="m-0"/>
+                  </t>
+                  <t t-else="">
+                      <strong t-esc="actor['title']"/>
+                  </t>
+                </div>
+            </t>
+        </div>
+        <br/>
+    </template>
+    
+    <template id="document_title" name="Document Title">
+        <div class="text-center pb-4">
+            <strong style="font-size: 22px;">
+                <u t-esc="document_title"/>
+            </strong> 
+        </div>
+    </template>
+</odoo>

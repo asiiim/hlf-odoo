@@ -1,0 +1,45 @@
+<odoo>
+    <record id="wizard_view_monthly_attendance_report" model="ir.ui.view">
+        <field name="name">Monthly Attendance Report</field>
+        <field name="model">attendance.monthly.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="employees_id" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="total_days"/>
+                        <field name="weekly_off_days"/>
+                        <field name="holidays"/>
+                    </group>
+                </group>
+                <footer>
+                    <button type="object" name="hr_attendance_monthly_report" string="Print" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_report_monthly_attendance"
+        name="Monthly Attendance Report"
+        res_model="attendance.monthly.report"
+        view_mode="form"
+        target="new"        
+    />
+    <menuitem id="menu_hr_attendance_misc_reports"
+        name="Misc Reports"
+        parent="hr_attendance.menu_hr_attendance_root"
+        sequence="25"
+    />
+    <menuitem id="menu_report_monthly_attendance"
+        name="Monthly Attendance Report"
+        groups="hr_attendance.group_hr_attendance_user" 
+        parent="menu_hr_attendance_misc_reports"
+        action="action_report_monthly_attendance"
+        sequence="1"
+    />
+</odoo>
