@@ -14,7 +14,10 @@ class LandedCostTemplate(models.Model):
     landed_cost_template_line_ids = fields.One2many('landed.cost.template.line', 'landed_cost_template_id', 'Lines', copy=True)
     note = fields.Text('Terms and conditions', translate=True)
     active = fields.Boolean(default=True, help="If unchecked, it will allow you to hide the template without removing it.")
-    company_id = fields.Many2one('res.company', string='Company')
+    company_id = fields.Many2one(
+        'res.company', 
+        'Company', required=True, index=True, 
+        default=lambda self: self.env.user.company_id.id)
 
     @api.constrains('company_id', 'landed_cost_template_line_ids')
     def _check_company_id(self):
@@ -37,7 +40,7 @@ class LandedCostTemplate(models.Model):
 
 
 
-class SaleOrderTemplateLine(models.Model):
+class LandedCostTemplateLine(models.Model):
     _name = "landed.cost.template.line"
     _description = "Landed Cost Template Line"
     _order = 'landed_cost_template_id, sequence, id'
@@ -48,10 +51,15 @@ class SaleOrderTemplateLine(models.Model):
         'landed.cost.template', 'Landed Cost Template Reference',
         required=True, ondelete='cascade', index=True)
     company_id = fields.Many2one('res.company', related='landed_cost_template_id.company_id', store=True, index=True)
+    account_id = fields.Many2one('account.account', string='Account',
+        index=True, ondelete="cascade",
+        domain="[('deprecated', '=', False), ('company_id', '=', company_id),('is_off_balance', '=', False)]",
+        check_company=True,
+        tracking=True)
+    is_landed_costs_line = fields.Boolean('Is Landed Cost', default=True, readonly=True)
     name = fields.Text('Description', required=True, translate=True)
     product_id = fields.Many2one(
-        'product.product', 'Product', check_company=True,
-        domain=[('sale_ok', '=', True)])
+        'product.product', 'Product', check_company=True)
     product_uom_qty = fields.Float('Quantity', required=True, digits='Product Unit of Measure', default=1)
     product_uom_id = fields.Many2one('uom.uom', 'Unit of Measure', domain="[('category_id', '=', product_uom_category_id)]")
     product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id', readonly=True)
