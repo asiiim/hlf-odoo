@@ -39,6 +39,13 @@ class VendorBill(models.Model):
                 price = line.product_id.standard_price
                 discount = 0
 
+                
+                # Set landed cost if the product is landed cost
+                is_landed_cost = False
+                if line.product_id.type == 'service' \
+                    and line.product_id.landed_cost_ok == True:
+                    is_landed_cost = True
+
 
                 data.update({
                     'price_unit': price,
@@ -46,7 +53,7 @@ class VendorBill(models.Model):
                     'quantity': line.product_uom_qty,
                     'product_id': line.product_id.id,
                     'product_uom_id': line.product_uom_id.id,
-                    'is_landed_costs_line': line.is_landed_costs_line,
+                    'is_landed_costs_line': is_landed_cost,
                     'account_id': line.account_id.id,
                     'currency_id': line.company_id.currency_id.id,
                     'partner_id': self.partner_id,
@@ -54,6 +61,10 @@ class VendorBill(models.Model):
                 })
 
             order_lines.append((0, 0, data))
+
+        # Add journal id value in the vendor bill
+        if template.journal_id:
+            self.journal_id = template.journal_id
 
         self.invoice_line_ids = order_lines
         

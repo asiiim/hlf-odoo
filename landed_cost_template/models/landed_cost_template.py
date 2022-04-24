@@ -38,6 +38,21 @@ class LandedCostTemplate(models.Model):
         if companies and self.company_id not in companies:
             self.company_id = companies[0]
 
+    
+    journal_id = fields.Many2one('account.journal', 
+        string='Journal',
+        check_company=True, domain="[('id', 'in', suitable_journal_ids)]",
+        required=True)
+    suitable_journal_ids = fields.Many2many('account.journal', compute='_compute_suitable_journal_ids')
+
+    @api.depends('company_id')
+    def _compute_suitable_journal_ids(self):
+        for m in self:
+            journal_type = 'purchase'
+            company_id = m.company_id.id or self.env.company.id
+            domain = [('company_id', '=', company_id), ('type', '=', journal_type)]
+            m.suitable_journal_ids = self.env['account.journal'].search(domain)
+
 
 
 class LandedCostTemplateLine(models.Model):
