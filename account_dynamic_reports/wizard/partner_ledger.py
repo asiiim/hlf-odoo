@@ -7,6 +7,8 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 import json
 import io
 from odoo.tools import date_utils
+import logging
+_logger = logging.getLogger(__name__)
 
 try:
     from odoo.tools.misc import xlsxwriter
@@ -168,7 +170,7 @@ class InsPartnerLedger(models.TransientModel):
     display_accounts = fields.Selection(
         [('all', 'All'),
          ('balance_not_zero', 'With balance not equal to zero')], string='Display accounts',
-        default='balance_not_zero', required=True
+        default='all', required=True
     )
     balance_less_than_zero = fields.Boolean(string='With balance less than zero')
     balance_greater_than_zero = fields.Boolean(string='With balance greater than zero')
@@ -253,7 +255,7 @@ class InsPartnerLedger(models.TransientModel):
         ''' To show on report headers'''
 
         data = self.get_filters(default_filters={})
-
+        _logger.info("==========================1==========data=====%s",data)
         filters = {}
         if data.get('display_accounts') == 'balance_not_zero':
             filters['display_accounts'] = 'With balance not Zero'
@@ -318,6 +320,7 @@ class InsPartnerLedger(models.TransientModel):
         filters['partners_list'] = data.get('partners_list')
         filters['category_list'] = data.get('category_list')
         filters['company_name'] = data.get('company_name')
+        _logger.info("==========================11==========filters=====%s",filters)
 
         return filters
 
@@ -764,6 +767,7 @@ class InsPartnerLedger(models.TransientModel):
             'company_name': self.company_id and self.company_id.name,
         }
         filter_dict.update(default_filters)
+        _logger.info("==============2=================filter======%s",filter_dict)
         return filter_dict
 
     def get_report_datas(self, default_filters={}):

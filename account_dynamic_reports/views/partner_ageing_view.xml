@@ -38,7 +38,7 @@
                             --border:1px solid grey;
                         }
                     </style>
-                    <h3><span t-esc="res_company.name"/>: Partner Ageing</h3>
+                    <h3 style="text-align:center"><span t-esc="res_company.name"/>: Partner Ageing</h3>
                     <div>
 
                         <div class="row pims_report_content">
@@ -104,7 +104,18 @@
                         </table>
                     </div>
                     <br></br>
-                    <p style="text-align:center"> *** END OF DOCUMENT ***</p>
+                    
+                      <div style="margin-top:20px">
+                            <div style="float:left">
+                                <p> .............................</p>
+                                <p style="text-align:center">Approved By</p>
+                            </div>
+                            
+                            <div style="float:right">
+                                <p> .............................</p>
+                                <p style="text-align:center">Prepared By</p>
+                            </div>
+  					</div>
                 </div>
            </t>
         </t>
