@@ -65,7 +65,7 @@ var action = {
 'report_file': 'account_dynamic_reports.ins_report_financial',
 'data': {'js_data':data},
 'context': {'active_model':'ins.financial.report',
-'landscape':1,
+'landscape': 1,
 'from_js': true
 },
 'display_name': 'Finance Report',
