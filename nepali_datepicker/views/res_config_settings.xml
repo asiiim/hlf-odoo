@@ -1,0 +1,74 @@
+<odoo>
+    <data>
+        <record id="nepali_DP_res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">nepali.datepicker.res.config.settings.view.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="50"/>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//div[hasclass('settings')]" position="inside">
+            		<div class="app_settings_block" data-string="Nepali Datepicker" data-key="nepali_datepicker" groups="base.group_system">
+            		<div name="nepali_datepicker_settings">
+                
+                	<h2>Nepali Datepicker</h2>
+                    <div class="row mt16 o_settings_container" name="nepali_date">
+	                    <div class="col-12 col-md-6 o_setting_box">
+	                        <div class="o_setting_right_pane">
+	                            <span class="o_form_label">Display Nepali Date in Report</span>
+	                            <div class="text-muted">
+	                                Tick to display Nepali Date for Date Field and Datetime Field
+	                            </div>
+	                            <div class="content-group">
+									<div class="row mt16">
+		                                <label class="col-md-3 o_light_label" for="bs_date_in_report"/>
+		                                <field name="bs_date_in_report"/>
+		                            </div>
+									<div class="row mt16">
+		                                <label class="col-md-3 o_light_label" for="bs_datetime_in_report"/>
+		                                <field name="bs_datetime_in_report"/>
+		                            </div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-12 col-md-6 o_setting_box">
+	                        <div class="o_setting_right_pane">
+	                            <span class="o_form_label">Date Format with Example</span>
+	                            <div class="row mt16">
+		                                <label class="col-md-3 o_light_label" for="bs_date_format"/>
+		                                <field name="bs_date_format" required="1"/>
+		                            </div>
+	                            <div class="content-group">
+		                            <div class="row mt16">
+										<label class="col-md-3 o_light_label" for="bs_date_demo"/>
+		                                <field name="bs_date_demo" readonly="1"/>
+		                            </div>
+		                        </div>
+	                        </div>
+	                    </div>
+						<group string="Legends for supported Nepali Date Formats">
+                            <div>%a - Abbreviated weekday name.[Sun, Mon, …, Sat]</div>
+                            <div>%A - Full weekday name.[Sunday, Monday, …, Saturday]</div>
+							<div>%w - Weekday number [0(Sunday),6]."</div>
+							<div>%G - Weekday as locale’s full name in Nepali unicode.[आइतबार, सोमबार, …, शनिबार]</div>
+							<div>%d - Day of the month [01, 02, …, 32]."</div>
+							<div>%D - Day of the month as a zero-padded decimal number in Nepali unicode. [०१, ०२, …, ३२]."</div>
+                            <div>%m - Month number [01,12]."</div>
+							<div>%b - Month as locale’s abbreviated name..[Bai, Jes, …, Cha]</div>
+                            <div>%B - Month as locale’s full name.[Baishakh, Jestha, …, Chaitra]"</div>
+							<div>%N - Month as locale’s full name in Nepali unicode.[वैशाख, जेष्ठ, असार, श्रावण, भदौ, आश्विन, कार्तिक, मंसिर, पौष, माघ, फाल्गुण, चैत्र]"</div>
+							<div>%n - Month as a zero-padded decimal number.[०१, ०२,…, १२]"</div>
+                            <div>%y - Year without century [00,99]."</div>
+                            <div>%Y - Year with century as a decimal number.[1975,…,2078,…, 2100]"</div>
+							<div>%K - Year with century as a decimal number in Nepali unicode.[१९७५, १९७६, …, २०९९, २१००]"</div>
+                        </group>
+	                </div>
+				</div>
+				</div>
+
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
