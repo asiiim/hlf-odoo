@@ -15,6 +15,11 @@
                         <field name="allowance" nolabel="1"/>
                         <span>/ month</span>
                     </div>
+                                        <label for="performance_allowance"/>
+                    <div class="o_row">
+                        <field name="performance_allowance" nolabel="1"/>
+                        <span>/ month</span>
+                    </div>
                     <label for="cit"/>
                     <div class="o_row">
                         <field name="cit" nolabel="1"/>
