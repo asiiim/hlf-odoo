@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="partner_ledger_account_dynamic_reports_inherit" inherit_id="account_dynamic_reports.partner_ledger">
+
+    <xpath expr="//tr[@class='pims_report_line_data_tr']/td[1]" position="replace">
+                <td><t t-esc="sub_line.get('ldatenep')"/></td>
+                </xpath>
+</template>
+<template id="general_ledger_account_dynamic_reports_inherit" inherit_id="account_dynamic_reports.general_ledger">
+
+    <xpath expr="//tr[@class='pims_report_line_data_tr']/td[1]" position="replace">
+                <td><t t-esc="sub_line.get('ldatenepgl')"/></td>
+                </xpath>
+</template>
+</data>
+</odoo>
