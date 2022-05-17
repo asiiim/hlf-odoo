@@ -6,12 +6,50 @@
     <xpath expr="//tr[@class='pims_report_line_data_tr']/td[1]" position="replace">
                 <td><t t-esc="sub_line.get('ldatenep')"/></td>
                 </xpath>
+                  <xpath expr="//tr[@class='pims_report_line_data_tr']" position="replace">
+                <tr class="pims_report_line_data_tr">
+                                                <td><t t-esc="sub_line.get('ldate')" t-options='{"widget": "date"}'/></td>
+                                                <td><t t-esc="sub_line.get('lcode')"/></td>
+                                                <td><t t-esc="sub_line.get('account_name')"/></td>
+                                                <td><t t-esc="sub_line.get('move_name')"/></td>
+                                                <td style="width:30%;"><t t-esc="sub_line.get('lname')"/></td>
+                                                <t t-if="sub_line.get('debit')">
+                                                    <td class="text-right"><t t-esc="sub_line.get('debit')" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
+                                                </t><t t-else=""><td class="text-center">-</td></t>
+                                                <t t-if="sub_line.get('credit')">
+                                                    <td class="text-right"><t t-esc="sub_line.get('credit')" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
+                                                </t><t t-else=""><td class="text-center">-</td></t>
+                                                <t t-if="sub_line.get('balance')">
+                                                    <td class="text-right"><t t-esc="sub_line.get('balance')"/></td>
+                                                </t><t t-else=""><td class="text-center">-</td></t>
+                                            </tr>
+                </xpath>
 </template>
 <template id="general_ledger_account_dynamic_reports_inherit" inherit_id="account_dynamic_reports.general_ledger">
 
     <xpath expr="//tr[@class='pims_report_line_data_tr']/td[1]" position="replace">
                 <td><t t-esc="sub_line.get('ldatenepgl')"/></td>
                 </xpath>
+     <xpath expr="//tr[@class='pims_report_line_data_tr']" position="replace"> 
+                     <tr class="pims_report_line_data_tr">
+                                                <td><t t-esc="sub_line.get('ldate')" t-options='{"widget": "date"}'/></td>
+                                                <td><t t-esc="sub_line.get('lcode')"/></td>
+                                                <td><t t-esc="sub_line.get('partner_name')"/></td>
+                                                <td><t t-esc="sub_line.get('move_name')"/></td>
+                                                <td style="width:30%;"><t t-esc="sub_line.get('lname')"/></td>
+                                                <t t-if="sub_line.get('debit')">
+                                                    <td class="text-right"><t t-esc="sub_line.get('debit')" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
+                                                </t><t t-else=""><td class="text-center">-</td></t>
+                                                <t t-if="sub_line.get('credit')">
+                                                    <td class="text-right"><t t-esc="sub_line.get('credit')" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
+                                                </t><t t-else=""><td class="text-center">-</td></t>
+                                                <t t-if="sub_line.get('balance')">
+                                                    <td class="text-right"><t t-esc="sub_line.get('balance')" /></td>
+                                                </t><t t-else=""><td class="text-center">-</td></t>
+                                            </tr>
+
+
+                 </xpath>
 </template>
 </data>
 </odoo>
