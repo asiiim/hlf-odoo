@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="payment_journal_balance_inherit">
+            <field name="name">payment.journal.balance.inherit</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+              <field name="payment_method_id" position="after">
+                <field name="partner_balance"/>
+              </field>
+            </field>
+        </record>
+</odoo>
