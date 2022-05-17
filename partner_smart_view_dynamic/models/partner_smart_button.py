@@ -489,7 +489,15 @@ class InsPartLedgerInherit(models.TransientModel):
                 row['ending_bal'] = False
 
                 current_balance = row['balance']
-                row['balance'] = opening_balance + current_balance
+                # row['balance'] = opening_balance + current_balance
+                if row['balance'] > 0:
+                    row['balance'] = "Rs " + str(opening_balance) + str(current_balance) + " Dr"
+                elif row['balance'] == 0:
+                    row['balance'] = "Rs " + str(opening_balance) + str(current_balance) 
+                else:
+                    row['balance'] = "Rs " + str(abs(opening_balance)) + str(abs(current_balance)) + " Cr"
+                _logger.info("=========================================abcdeee==============%s",row['balance'])
+
                 opening_balance += current_balance
                 row['initial_bal'] = False
 
@@ -909,8 +917,13 @@ class InsPartLedgerInherit(models.TransientModel):
                                                     line_header_light_initial)
                             sheet.write(row_pos, 6, float(sub_line.get('credit')),
                                                     line_header_light_initial)
-                            sheet.write(row_pos, 7, float(sub_line.get('balance')),
-                                                    line_header_light_initial)
+                            if float(sub_line.get('balance')) > 0:
+                                sheet.write(row_pos, 7,"Rs " +  str(float(sub_line.get('balance'))) + " Dr", line_header_light_initial)
+                            elif float(sub_line.get('balance')) == 0:
+                                sheet.write(row_pos, 7,"Rs " +  str(float(sub_line.get('balance'))) , line_header_light_initial)
+                            else:
+                                sheet.write(row_pos, 7,"Rs " +  str(float(abs(sub_line.get('balance')))) + " Cr", line_header_light_initial)
+
                         elif sub_line.get('move_name') not in ['Initial Balance','Ending Balance']:
                             row_pos += 1
                             # datestring = fields.Date.from_string(str(sub_line.get('ldatenep'))).strftime(
@@ -931,8 +944,16 @@ class InsPartLedgerInherit(models.TransientModel):
                                                     float(sub_line.get('debit')),line_header_light)
                             sheet.write(row_pos, 6,
                                                     float(sub_line.get('credit')),line_header_light)
-                            sheet.write(row_pos, 7,
-                                                    float(sub_line.get('balance')),line_header_light)
+                            # sheet.write(row_pos, 7,
+                                                    # float(sub_line.get('balance')),line_header_light)
+
+                            if float(sub_line.get('balance')) > 0:
+                                sheet.write(row_pos, 7,"Rs " +  str(float(sub_line.get('balance'))) + " Dr", line_header_light_initial)
+                            elif float(sub_line.get('balance')) == 0:
+                                sheet.write(row_pos, 7,"Rs " +  str(float(sub_line.get('balance'))) , line_header_light_initial)
+                            else:
+                                sheet.write(row_pos, 7,"Rs " +  str(float(abs(sub_line.get('balance')))) + " Cr", line_header_light_initial)
+
                         else: # Ending Balance
                             row_pos += 1
                             sheet.write(row_pos, 4, sub_line.get('move_name'),
