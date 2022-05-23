@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_customer_invoice_outstanding"
+            string="Invoice Report"
+            model="invoice.outstanding.wiz" 
+            report_type="qweb-pdf"
+            file="invoice_outstanding_report.invoice_outstanding" 
+            name="invoice_outstanding_report.invoice_outstanding" 
+            print_report_name="(object._get_report_base_filename())"
+        />
+       
+        <report string="Invoice Report Excel"
+            id="action_customer_invoice_outstanding_xlsx"
+            model="invoice.outstanding.wiz"
+            name="invoice_outstanding_report.invoice_outstanding_wiz"
+            file="invoice_outstanding_report.invoice_outstanding_wiz"
+            report_type="xlsx"
+            attachment_use="False"/>
+    </data>
+</odoo>
